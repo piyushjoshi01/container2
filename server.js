@@ -61,8 +61,6 @@ app.post("/calculate", (req, res) => {
     });
     res.status(201).json({ file, sum: count });
   });
-
-  console.log("Received data from Application 1:", { file, product });
 });
 
 app.listen(PORT, () => {
