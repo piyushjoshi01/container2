@@ -17,7 +17,7 @@ const PORT = 6000;
 app.post("/calculate", (req, res) => {
   const { file, product } = req.body;
 
-  const filePath = `../Container-1/${file}`;
+  const filePath = `/usr/share/data/${file}`;
 
   const data = [];
 

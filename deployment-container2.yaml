@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: assignment-deployment-container2
+  labels:
+    app: test-assignment
+    component: container2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test-assignment
+      component: container2
+  template:
+    metadata:
+      labels:
+        app: test-assignment
+        component: container2
+    spec:
+      volumes:
+        - name: assignment-pv-storage
+          persistentVolumeClaim:
+            claimName: assignment-pv-claim
+      containers:
+        - name: container2
+          image: gcr.io/kubernetes-428622/container2:latest
+          ports:
+            - containerPort: 8000
+          volumeMounts:
+            - name: assignment-pv-storage
+              mountPath: /usr/share/data
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+      imagePullSecrets:
+        - name: my-registry-secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-container2
+spec:
+  type: LoadBalancer
+  selector:
+    app: test-assignment
+    component: container2
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 8000
