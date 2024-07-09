@@ -17,7 +17,7 @@ const PORT = 6000;
 app.post("/calculate", (req, res) => {
   const { file, product } = req.body;
 
-  const filePath = `/usr/share/data/${file}`;
+  const filePath = `../piyush_PV_dir/${file}`;
 
   const data = [];
 
@@ -64,7 +64,7 @@ app.post("/calculate", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.send("Hello from Container-2");
+  res.send("Hello  World from Container-2 Kubernetes");
 });
 
 app.listen(PORT, () => {

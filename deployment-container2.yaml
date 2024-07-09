@@ -25,10 +25,10 @@ spec:
         - name: container2
           image: gcr.io/kubernetes-428622/container2:latest
           ports:
-            - containerPort: 8000
+            - containerPort: 6000
           volumeMounts:
             - name: assignment-pv-storage
-              mountPath: /usr/share/data
+              mountPath: /piyush_PV_dir
           resources:
             requests:
               memory: "256Mi"
@@ -44,7 +44,6 @@ kind: Service
 metadata:
   name: service-container2
 spec:
-  type: LoadBalancer
   selector:
     app: test-assignment
     component: container2
@@ -52,4 +51,4 @@ spec:
     - name: http
       protocol: TCP
       port: 80
-      targetPort: 8000
+      targetPort: 6000
