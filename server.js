@@ -64,7 +64,7 @@ app.post("/calculate", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.send("Hello Worlds");
+  res.send("Hello from Container-2");
 });
 
 app.listen(PORT, () => {
