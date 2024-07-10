@@ -14,8 +14,7 @@ steps:
       - "-c"
       - |
         gcloud container clusters get-credentials assignment-cluster --zone us-central1-a &&
-        kubectl apply -f deployment-container2.yaml &&
-        kubectl set image deployment/assignment-deployment-container2 container2=gcr.io/kubernetes-428622/container2:$SHORT_SHA
+        kubectl apply -f deployment-container2.yaml
 
 images:
   - "gcr.io/kubernetes-428622/container2"
