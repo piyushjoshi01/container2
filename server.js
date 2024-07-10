@@ -64,7 +64,7 @@ app.post("/calculate", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.send("Hello  World from Container-2 Kubernetes Assignment");
+  res.send("Hello  World from Container-2 Kubernetes");
 });
 
 app.listen(PORT, () => {
