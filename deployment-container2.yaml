@@ -29,13 +29,6 @@ spec:
           volumeMounts:
             - name: assignment-pv-storage
               mountPath: /piyush_PV_dir
-          resources:
-            requests:
-              memory: "256Mi"
-              cpu: "250m"
-            limits:
-              memory: "512Mi"
-              cpu: "500m"
       imagePullSecrets:
         - name: my-registry-secret
 ---
